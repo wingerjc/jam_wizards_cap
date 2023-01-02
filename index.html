@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>
+            Wizard's Cap
+        </title>
+        <link rel="stylesheet" type="text/css" href="./css/base.css">
+        <script src="./js/base.js"></script>
+    </head>
+    <body>
+        <div id="story">
+            You Are a young wizard.
+        </div>
+        <div id="stage-0">
+            <div>
+                <div id="m-power-wrap">
+                    <div id="m-power-fill"></div>
+                </div>
+                <div id="m-power-value">0.5</div> Magic Power
+            </div>
+            <div>
+                <input type="button" value="Meditate" onclick="Meditate()" />
+            </div>
+        </div>
+        <div id="stage-1" style="display: none;">
+            <input type="checkbox" value=Sparks id="spark-enable" checked onclick="Collapse('spark-enable', 'spark-body')" />
+            <label for="spark-enable">Fire</label>
+            <div id="spark-body" class="stage-body">
+                <div>
+                    <input id="cast-spark" type="button" disabled value="Cast Spark" onclick="Spark()">
+                    <div id="spark-count">0</div> Sparks   
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="application/javascript">
+        StartTick();
+    </script> 
+</html>

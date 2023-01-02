@@ -1,0 +1,42 @@
+
+
+body {
+    padding: 10px;
+    background-color: midnightblue;
+    color: bisque;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    font-weight: 300;
+    line-height: 1.1;
+}
+
+div::after {
+    height: 3px;
+}
+
+#m-power-wrap {
+    background-color: aqua;
+    width: 300px;
+    height: 20px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#m-power-fill {
+    width: 5%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: black;
+}
+
+#m-power-value {
+    display: inline-block;
+}
+
+#cast-spark, #spark-count {
+    display: inline-block;
+}
+
+.stage-body {
+    margin-left: 20px;
+}
