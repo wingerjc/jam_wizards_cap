@@ -8,7 +8,11 @@
     </head>
     <body>
         <div id="story">
-            You Are a young wizard.
+            <span id="current-story">You are a young person who wants to become a great wizard.</span>
+            <div id="old-story" style="display: none;">
+                <input type="checkbox" value=Story id="story-enable" unchecked onclick="Collapse('story-enable', 'old-story-body')" />
+                <label for="story-enable">Past Story Entries</label>
+                <div id="old-story-body" class="stage-body" style="display: none;"></div>
         </div>
         <div id="stage-0">
             <div>
@@ -19,6 +23,7 @@
             </div>
             <div>
                 <input type="button" value="Meditate" onclick="Meditate()" />
+                <input type="button" id="win" disabled value="Become a Master Wizard (1000 Magic Power)" />
             </div>
         </div>
         <div id="stage-1" style="display: none;">
@@ -29,6 +34,22 @@
                     <input id="cast-spark" type="button" disabled value="Cast Spark" onclick="Spark()">
                     <div id="spark-count">0</div> Sparks   
                 </div>
+                <div id="spark-upgrade" style="display: none;">
+                    <input id="spark-speed" disabled type="button" value="Faster Sparks (10 spark)" onclick="stages[1].buyUpgrade('speed')"/>
+                    <input id="spark-strength" disabled type="button" value="Stronger Sparks (30 spark)" onclick="stages[1].buyUpgrade('strength')"/>
+                    <input id="spark-flames" disabled type="button" value="Flames (100 spark)" onclick="stages[1].buyUpgrade('flames')"/>
+                </div>
+                <div id="flames" style="display: none">
+                    Flames are burning <span id="flame-rate">0</span>% of Magic Power per second.
+                    <input id="spark-convert" disabled type="button" value="Convert sparks to flame" onclick="stages[1].convert()"/>
+                </div>
+            </div>
+        </div>
+        <div id="stage-2" style="display: none;">
+            <input type="checkbox" value=Sparks id="water-enable" checked onclick="Collapse('water-enable', 'water-body')" />
+            <label for="water-enable">Water</label>
+            <div id="water-body" class="stage-body">
+                Water
             </div>
         </div>
     </body>

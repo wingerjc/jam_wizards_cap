@@ -40,3 +40,12 @@ div::after {
 .stage-body {
     margin-left: 20px;
 }
+
+#old-story-body {
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.story-item {
+    margin-bottom: 4px;
+}
