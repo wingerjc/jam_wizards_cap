@@ -37,6 +37,10 @@ div::after {
     display: inline-block;
 }
 
+.collapse-head {
+    margin-top: 20px;
+}
+
 .stage-body {
     margin-left: 20px;
 }
@@ -44,6 +48,14 @@ div::after {
 #old-story-body {
     border: 2px solid black;
     padding: 5px;
+}
+
+#current-story {
+    transition: opacity 0.5s;
+}
+
+.not-visible {
+    opacity: 0;
 }
 
 .story-item {

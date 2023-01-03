@@ -10,10 +10,12 @@
         <div id="story">
             <span id="current-story">You are a young person who wants to become a great wizard.</span>
             <div id="old-story" style="display: none;">
-                <input type="checkbox" value=Story id="story-enable" unchecked onclick="Collapse('story-enable', 'old-story-body')" />
-                <label for="story-enable">Past Story Entries</label>
+                <div class="collapse-head">
+                    <input type="checkbox" value=Story id="story-enable" unchecked onclick="Collapse('story-enable', 'old-story-body')" />
+                    <label for="story-enable">Past Story Entries</label>
+                </div>
                 <div id="old-story-body" class="stage-body" style="display: none;"></div>
-        </div>
+            </div>
         <div id="stage-0">
             <div>
                 <div id="m-power-wrap">
@@ -22,16 +24,18 @@
                 <div id="m-power-value">0.5</div> Magic Power
             </div>
             <div>
-                <input type="button" value="Meditate" onclick="Meditate()" />
-                <input type="button" id="win" disabled value="Become a Master Wizard (1000 Magic Power)" />
+                <button id="meditate" onclick="Meditate()">[M]editate</button>
+                <button id="win" disabled>Become a Master Wizard (<span id="win-cost">1000</span> Magic Power)</button>
             </div>
         </div>
         <div id="stage-1" style="display: none;">
-            <input type="checkbox" value=Sparks id="spark-enable" checked onclick="Collapse('spark-enable', 'spark-body')" />
-            <label for="spark-enable">Fire</label>
+            <div class="collapse-head">
+                <input type="checkbox" value=Sparks id="spark-enable" checked onclick="Collapse('spark-enable', 'spark-body')" />
+                <label for="spark-enable">Fire</label>
+            </div>
             <div id="spark-body" class="stage-body">
                 <div>
-                    <input id="cast-spark" type="button" disabled value="Cast Spark" onclick="Spark()">
+                    <button id="cast-spark" disabled onclick="Spark()">Cast [S]park</button>
                     <div id="spark-count">0</div> Sparks   
                 </div>
                 <div id="spark-upgrade" style="display: none;">
@@ -41,17 +45,37 @@
                 </div>
                 <div id="flames" style="display: none">
                     Flames are burning <span id="flame-rate">0</span>% of Magic Power per second.
-                    <input id="spark-convert" disabled type="button" value="Convert sparks to flame" onclick="stages[1].convert()"/>
+                    <button id="spark-convert" disabled onclick="stages[1].convert()">[C]onvert sparks to flame</button>
                 </div>
             </div>
         </div>
         <div id="stage-2" style="display: none;">
-            <input type="checkbox" value=Sparks id="water-enable" checked onclick="Collapse('water-enable', 'water-body')" />
-            <label for="water-enable">Water</label>
+            <div class="collapse-head">
+                <input type="checkbox" value=water id="water-enable" checked onclick="Collapse('water-enable', 'water-body')" />
+                <label for="water-enable">Water</label>
+            </div>
             <div id="water-body" class="stage-body">
-                Water
+                <div>
+                    <button id="summon-water" disabled onclick="stages[2].summonWater()">Summon [W]ater</button>
+                    <span id="bucket-value">0.00</span> Buckets of water.
+                    <span id="max-buckets">0.00</span> Maximum buckets of water.
+                </div>
+                <div id="water-upgrades">
+                    <button id="upgrade-drain" disabled onclick="stages[2].upgrade('drain')">Reduce Magic Fade<br />(10 max water, resets max)</button>
+                    <button id="lower-evap" disabled onclick="stages[2].upgrade('evap')">Reduce Evaporation<br />(15 max water, resets max)</button>
+                    <button id="increase-summon" disabled onclick="stages[2].upgrade('summon')">Increase summon power<br />(20 max water, resets max)</button>
+                    <button id="water-upgrade-cost" disabled onclick="stages[2].upgrade('reduce-cost')">Reduces Magic Mastery cost by 50%<br />(25 max water, resets max)</button>
+                </div>
             </div>
         </div>
+        <div id="stage-3" style="display: none;">
+            <div class="collapse-head">
+                <input type="checkbox" value=earth id="earth-enable" checked onclick="Collapse('earth-enable', 'earth-body')" />
+                <label for="earth-enable">Earth</label>
+            </div>
+            <div id="earth-body" class="stage-body">
+                Earth
+            </div>
     </body>
     <script type="application/javascript">
         StartTick();
